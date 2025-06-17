@@ -1,0 +1,112 @@
+.signup-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 32px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.signup-container h2 {
+  font-size: 22px;
+  color: #e23744;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"]
+ {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #e23744;
+  box-shadow: 0 0 4px rgba(226, 55, 68, 0.2);
+}
+
+.error p {
+  color: red;
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #e23744;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #fca5ab;
+  cursor: not-allowed;
+}
+
+
+
+.google-signin-btn {
+    margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  background-color: #ffffff;
+  color: #444;
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.google-signin-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.google-signin-btn:hover {
+  background-color: #0a0b0c;
+}
+
+.signup-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.signup-prompt a {
+  color: #e23744;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.signup-prompt a:hover {
+  text-decoration: underline;
+}
+
+
+
+

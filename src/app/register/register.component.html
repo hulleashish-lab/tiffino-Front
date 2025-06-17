@@ -1,1 +1,58 @@
-<p>register works!</p>
+<div class="signup-container">
+
+  <h2>Create Account</h2>
+
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+
+
+    <!-- Name -->
+    <div class="error" *ngIf="f['name'].touched && f['name'].invalid">
+      <p *ngIf="f['name'].errors?.['required']">Name is required</p>
+      <p *ngIf="f['name'].errors?.['minlength']">Name must be at least 10 characters</p>
+    </div>
+    <input type="text" formControlName="name" placeholder="Full Name" />
+
+    <!-- Email -->
+    <div class="error" *ngIf="f['email'].touched && f['email'].invalid">
+      <p *ngIf="f['email'].errors?.['required']">Email is required</p>
+      <p *ngIf="f['email'].errors?.['email']">Enter a valid email</p>
+    </div>
+    <input type="email" formControlName="email" placeholder="Email Address" />
+
+    <!-- Phone -->
+    <div class="error" *ngIf="f['phone'].touched && f['phone'].invalid">
+      <p *ngIf="f['phone'].errors?.['required']">Phone number is required</p>
+      <p *ngIf="f['phone'].errors?.['pattern']">Enter a valid 10-digit number</p>
+    </div>
+    <input type="text" formControlName="phone" placeholder="Mobile Number" />
+
+    <div class="error" *ngIf="f['dob'].touched && f['dob'].invalid">
+      <p *ngIf="f['dob'].errors?.['required']">Date of birth is required</p>
+    </div>
+      <input type="date" formControlName="dob" placeholder=" date of birth" />
+
+
+    <!-- Checkbox -->
+    <div class="form-check mt-3">
+      <input class="form-check-input" type="checkbox" value="" id="checkChecked">
+      <label class="form-check-label" for="checkChecked">
+        I agree to Tiffino's 
+        <a href="C:\angular\Tiffino\Tiffino\src\Terms of service.txt" class="text-decoration-none ms-1 me-1 text-danger">Terms of Service</a>,
+        <a href="#" class="text-decoration-none me-1 text-danger">Privacy Policy</a> and
+        <a href="#" class="text-decoration-none ms-1 text-danger">Content Policies</a>.
+      </label>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="!signupForm.valid">Create Account</button>
+  </form>
+  <button class="google-signin-btn">
+ <img src="./assets/icons8.png" alt="Google" width="20">
+  Continue with Google
+</button>
+<div class="signup-prompt">
+  <h4>Already Login?</h4>
+ <h4> <a routerLink="/login">Login</a></h4>
+</div>
+</div>
