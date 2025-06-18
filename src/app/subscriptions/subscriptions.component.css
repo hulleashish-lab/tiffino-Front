@@ -1,25 +1,41 @@
-body {
-  background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  margin: 0;
+.split-screen {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Left Side */
+.left-side {
+  flex: 1;
+  background: linear-gradient(to bottom, #fff, #fff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Right Side */
+.right-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fefefe;
+}
+
+/* Subscription Box */
+.subscription-container {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 36px;
+  border-radius: 16px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(6px);
+  position: relative;
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* Container */
-.subscription-container {
-  max-width: 460px;
-  margin: 60px auto;
-  padding: 36px 32px;
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: 16px;
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.2);
-  position: relative;
-  backdrop-filter: blur(6px);
-}
-
-/* Heading */
 .subscription-container h2 {
   text-align: center;
   color: #e23744;
@@ -27,7 +43,6 @@ body {
   margin-bottom: 24px;
 }
 
-/* Form group */
 .form-group {
   margin-bottom: 20px;
 }
@@ -40,17 +55,6 @@ label {
   font-size: 15px;
 }
 
-/* Add icons next to labels */
-label::before {
-   /* Default icon for demonstration */
-  margin-right: 6px;
-  font-size: 16px;
-  vertical-align: middle;
-}
-
-
-
-/* Select box */
 select {
   width: 100%;
   padding: 12px;
@@ -66,13 +70,7 @@ select:focus {
   outline: none;
 }
 
-/* Checkbox styling */
-.checkbox {
-  margin-bottom: 22px;
-}
-
 .checkbox label {
-  display: inline;
   font-weight: 500;
   color: #444;
 }
@@ -81,7 +79,6 @@ select:focus {
   margin-right: 8px;
 }
 
-/* Submit button */
 button {
   width: 100%;
   padding: 14px;
@@ -90,7 +87,7 @@ button {
   font-size: 16px;
   font-weight: 600;
   border: none;
-  border-radius: 10px;
+  border-radius: 40px;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(226, 55, 68, 0.3);
   transition: all 0.3s ease;
@@ -101,19 +98,17 @@ button:hover {
   box-shadow: 0 6px 18px rgba(226, 55, 68, 0.4);
 }
 
-/* Back arrow */
 .back-arrow {
   font-size: 28px;
   cursor: pointer;
   color: #000;
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  font-weight: bold;
+  margin-bottom: 16px;
   transition: color 0.3s ease;
 }
 
 .back-arrow:hover {
   color: #e23744;
 }
+
+
 
