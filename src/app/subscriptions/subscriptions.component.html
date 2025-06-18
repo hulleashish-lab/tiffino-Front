@@ -1,1 +1,50 @@
-<p>subscriptions works!</p>
+<div class="subscription-container">
+
+ <div class="back-arrow" >
+  <div class="back-arrow" (click)="goToLogin()">
+  ←
+</div>
+  </div>
+
+  <h2>Choose Your Subscription</h2>
+
+  <form [formGroup]="subscriptionForm" (ngSubmit)="submit()">
+
+    <div class="form-group">
+      <label>Plan Duration:</label>
+      <select formControlName="plan">
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="bi-weekly">Bi-Weekly</option>
+        <option value="monthly">Monthly</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Meal Type:</label>
+      <select formControlName="mealType">
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+        <option value="both">Lunch & Dinner</option>
+        <option value="full">Breakfast, Lunch & Dinner</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Meal Frequency:</label>
+      <select formControlName="frequency">
+        <option value="single">Single Meal / Day</option>
+        <option value="two">Two Meals / Day</option>
+        <option value="three">Three Meals / Day</option>
+      </select>
+    </div>
+
+    <div class="checkbox">
+      <input type="checkbox" formControlName="oneTimeOrder" id="oneTime">
+      <label for="oneTime">Opt for One-Time Order</label>
+    </div>
+
+    <button type="submit">Click to continue payment </button>
+  </form>
+</div>
+
