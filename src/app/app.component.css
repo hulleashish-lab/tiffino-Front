@@ -8,7 +8,7 @@ nav {
   display: flex;
   justify-content: center;
   gap: 20px;
-  background-color: #f8f8f8;
+  background-color: #e697527e;
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -33,5 +33,6 @@ hr {
 
 router-outlet {
   display: block;
-  padding: 20px;
+  padding: 10px;
+ 
 }

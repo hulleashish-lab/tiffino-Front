@@ -1,0 +1,119 @@
+body {
+  background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Container */
+.subscription-container {
+  max-width: 460px;
+  margin: 60px auto;
+  padding: 36px 32px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 16px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.2);
+  position: relative;
+  backdrop-filter: blur(6px);
+}
+
+/* Heading */
+.subscription-container h2 {
+  text-align: center;
+  color: #e23744;
+  font-size: 26px;
+  margin-bottom: 24px;
+}
+
+/* Form group */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+  font-size: 15px;
+}
+
+/* Add icons next to labels */
+label::before {
+   /* Default icon for demonstration */
+  margin-right: 6px;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+
+
+/* Select box */
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  background-color: #fefefe;
+  transition: border 0.2s ease;
+}
+
+select:focus {
+  border-color: #e23744;
+  outline: none;
+}
+
+/* Checkbox styling */
+.checkbox {
+  margin-bottom: 22px;
+}
+
+.checkbox label {
+  display: inline;
+  font-weight: 500;
+  color: #444;
+}
+
+.checkbox input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* Submit button */
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #e23744;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(226, 55, 68, 0.3);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #c22b39;
+  box-shadow: 0 6px 18px rgba(226, 55, 68, 0.4);
+}
+
+/* Back arrow */
+.back-arrow {
+  font-size: 28px;
+  cursor: pointer;
+  color: #000;
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.back-arrow:hover {
+  color: #e23744;
+}
+
