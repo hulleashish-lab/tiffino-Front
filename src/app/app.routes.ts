@@ -9,10 +9,11 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 
-
+import { AccountRegistrationComponent } from './account-registration/account-registration.component';
+import { ForgatePasswordComponent } from './forgate-password/forgate-password.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'cuisines', component: CuisinesComponent },
   { path: 'subscriptions', component: SubscriptionsComponent },
   { path: 'login', component: LoginComponent },
@@ -20,6 +21,8 @@ export const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   {path:'contact',component:ContactComponent},
 
-{ path: 'admin-login', component: AdminLoginComponent }
+{ path: 'admin-login', component: AdminLoginComponent },
+{path: 'Account-Registration',component: AccountRegistrationComponent} ,
+{path: 'forgate-password',component : ForgatePasswordComponent}
 
 ];

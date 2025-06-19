@@ -1,18 +1,21 @@
-<div class="admin-login-container">
+<div class="login-container">
   <div class="login-card">
     <h2>Admin Login</h2>
+
     <form>
-      <div class="input-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Enter username" required>
+      <input type="text" placeholder="username" name="username" class="input-field" />
+
+      <div class="password-container">
+        <input type="password" placeholder="password" name="password" class="input-field" />
+        <span class="toggle-icon">&#128065;</span>
       </div>
 
-      <div class="input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter password" required>
+      <div class="links">
+  <a routerLink="/Account-Registration"> Account Registration</a> 
+   <a routerLink="/forgate-password"> Forgate password </a> 
       </div>
 
-      <button type="submit" class="login-btn">Login</button>
+      <button type="submit" class="login-button">Login</button>
     </form>
   </div>
 </div>

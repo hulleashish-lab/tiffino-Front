@@ -1,34 +1,99 @@
-h1 {
-  text-align: center;
-  color: #e91e63;
-  margin-top: 20px;
-}
 
-nav {
+.navbar {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  background-color: #e697527e;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: center; 
+  position: relative;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
 }
 
-nav a {
-  text-decoration: none;
-  font-weight: 600;
+.menu-icon {
+ position: absolute;
+  left: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #0e0808;
+}
+
+.lis {
+display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 50px;
+}
+
+.lis li a {
+   text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
   color: #333;
-  transition: color 0.3s;
+  transition: color 0.2s ease;
 }
 
-nav a:hover {
-  color: #e91e63;
+.lis li a:hover {
+ 
+   color: #33dd27;
+  text-decoration: none;
 }
 
-hr {
-  margin: 20px 0;
-  border: 0;
-  border-top: 1px solid #ccc;
+/* Sidebar  */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  height: 100%;
+  width: 220px;
+  background-color: #f0efef;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 999;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 5;
+}
+
+.sidebar ul li {
+  padding: 12px 16px;
+  border-bottom: 1px solid #281515;
+  transition: background-color 0.3s, border-radius 0.3s;
+  border-radius: 8px;
+  margin: 8px 8px;
+  gap: 5px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  font-weight: 500;
+}
+
+.sidebar ul li:hover {
+  background-color: #f5e9ea; /* Light pink hover effect */
+  border-radius: 12px;
+}
+.sidebar ul li a:hover {
+  color: #e23744; /* Highlight color on text hover */
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 28px;
+  cursor: pointer;
+  color: rgb(4, 0, 0);
 }
 
 router-outlet {
