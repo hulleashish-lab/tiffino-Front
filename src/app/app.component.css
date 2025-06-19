@@ -36,3 +36,509 @@ router-outlet {
   padding: 10px;
  
 }
+
+
+
+/* break-------------- */
+
+
+
+/* Card Container - Beautiful 5-column Grid */
+.card-container {
+    display: grid;
+    /* Use grid layout */
+    grid-template-columns: repeat(5, 1fr);
+    /* 5 columns */
+    gap: 25px;
+    /* Spacing between cards */
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    /* Frosted glass effect */
+    margin-bottom: 5%;
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 6%;
+    color: #2c0000;
+    /* White text */
+    text-transform: uppercase;
+}
+
+/* Card Styling */
+.restaurant-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* Hover Effect */
+.restaurant-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Bestseller Tag */
+.bestseller-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ff9800;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+/* Food Image */
+.food-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-bottom: 2px solid #ddd;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Image Hover Effect */
+.restaurant-card:hover .food-image {
+    transform: scale(1.05);
+}
+
+/* Card Content */
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Food Title */
+.food-title {
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* Details Section */
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Rating */
+.rating {
+    background: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* Price */
+.price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e44d26;
+}
+
+/* Hide default checkbox */
+.custom-checkbox {
+    display: none;
+}
+
+/* Custom checkbox design */
+.customizable {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #007bff;
+    cursor: pointer;
+}
+
+/* Custom checkbox before (unchecked state) */
+.customizable::before {
+    content: "⬜";  
+    font-size: 16px;
+    margin-right: 8px;
+    transition: 0.3s;
+}
+
+/* Custom checkbox when checked */
+.custom-checkbox:checked + .customizable::before {
+    content: "✅";  /* Checked box */
+    color: #007bff;
+}
+
+/* Add Button */
+.add-btn {
+    width: 100%;
+    background: linear-gradient(90deg, #ff512f, #dd2476);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.add-btn:hover {
+    background: linear-gradient(90deg, #dd2476, #ff512f);
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .card-container {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columns for tablets */
+        max-width: 750px;
+    }
+}
+
+@media (max-width: 600px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns for mobile */
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 400px) {
+    .card-container {
+        grid-template-columns: 1fr;
+        /* 1 column for very small screens */
+    }
+}
+
+  
+
+
+/* break----------- */
+
+/* General Footer Styling */
+/* General Footer Styling */
+.footer {
+  background-color: transparent;
+  /* background-image: url('/assets/img/footer.jpg'); */
+  background: linear-gradient(to right, #9f9797,#c8c8c8);
+
+  /* Correct path */
+  background-size: cover;
+  background-position: center center;
+  color: #000000;
+  /* Soft beige text */
+  padding: 50px 0;
+  font-size: 1.2rem;
+  position: relative;
+  /* So that any pseudo-element positioning works */
+}
+
+
+/* Footer Heading */
+.footer h5 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: rgb(66, 44, 2);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+/* Footer Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-link {
+  color: #212121;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-link:hover {
+  color: #d2f644;
+  /* Soft highlight */
+  text-decoration: underline;
+}
+
+/* Contact Info */
+.footer-contact {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-contact li {
+  margin-bottom: 8px;
+}
+
+.footer-contact i {
+  color: #000000;
+  /* Accent color */
+  margin-right: 8px;
+}
+
+/* Social Icons */
+.footer-social {
+  margin-top: 10px;
+}
+
+.footer-social a {
+  display: inline-block;
+  font-size: 1.8rem;
+  color: #000000;
+  margin-right: 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-social a:hover {
+  color: #ff0000;
+  /* Gold hover effect */
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 1.20rem;
+  margin-top: 20px;
+  padding-top: 10px;
+  color: #000000;
+  /* Lighter text for a subtle look */
+}
+
+
+
+/* breask----------------------------------------
+
+/* Navbar styling */
+/* .navbar {
+    background: transparent;
+    z-index: 1030;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+} */
+
+/* Navbar fixed at the top */
+/* .navbar.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+} */
+
+/* Ensure content does not overlap with fixed navbar */
+/* body {
+    padding-top: 80px;
+} */
+
+/* Change navbar background on scroll */
+.navbar.scrolled {
+    background: orange !important;
+}
+
+/* Navbar links styling */
+.navbar .nav-link {
+    color: #000;
+    font-weight: 500;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: #100000;
+}
+
+/* Navbar dropdown menu */
+.navbar .dropdown-menu {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown item styling */
+.navbar .dropdown-item {
+    color: #000;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+}
+
+.navbar .dropdown-item:hover {
+    background-color: #575a01;
+}
+
+/* Navbar brand logo */
+.navbar-brand img {
+    height: 100px;
+    width: auto;
+}
+
+/* India flag symbol */
+.india-symbol img {
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Cart Icon */
+.cart-icon {
+    position: relative;
+    font-size: 1.5rem;
+    color: #000;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+.cart-icon:hover {
+    color: orange;
+}
+
+/* Cart Badge (Item Count) */
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: red;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 2px 6px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+  }
+  
+  .profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  
+  .dropdown-menu {
+    min-width: 200px;
+  }
+  
+  
+
+/* ================== RESPONSIVE DESIGN ================== */
+
+/* Tablet Screens (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .navbar .nav-link {
+        font-size: 1.1rem;
+        padding: 8px 12px;
+    }
+
+    .navbar-brand img {
+        height: 80px;
+    }
+
+    .india-symbol img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .cart-icon {
+        font-size: 1.3rem;
+    }
+
+    .cart-badge {
+        font-size: 0.7rem;
+        padding: 1px 5px;
+    }
+}
+
+/* Mobile Screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .navbar .nav-link {
+        font-size: 1rem;
+        padding: 8px 10px;
+        display: block;
+        text-align: center;
+    }
+
+    .navbar .dropdown-menu {
+        text-align: center;
+    }
+
+    .navbar-brand img {
+        height: 70px;
+    }
+
+    .india-symbol img {
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+    }
+
+    .cart-icon {
+        font-size: 1.2rem;
+    }
+
+    .cart-badge {
+        font-size: 0.7rem;
+        padding: 1px 4px;
+    }
+}
+
+/* Small Mobile Screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .navbar .nav-link {
+        font-size: 0.9rem;
+        padding: 6px 8px;
+    }
+
+    .navbar-brand img {
+        height: 60px;
+    }
+
+    .india-symbol img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .cart-icon {
+        font-size: 1rem;
+        margin-left: 10px;
+    }
+
+    .cart-badge {
+        font-size: 0.6rem;
+        padding: 1px 3px;
+    }
+}
+*/

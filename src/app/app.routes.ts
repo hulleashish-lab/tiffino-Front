@@ -6,6 +6,11 @@ import { SubscriptionsComponent } from './subscriptions/subscriptions.component'
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+
+
+
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cuisines', component: CuisinesComponent },
@@ -13,5 +18,8 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
-  {path:'contact',component:ContactComponent}
+  {path:'contact',component:ContactComponent},
+
+{ path: 'admin-login', component: AdminLoginComponent }
+
 ];
