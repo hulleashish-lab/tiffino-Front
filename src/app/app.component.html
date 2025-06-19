@@ -1,12 +1,36 @@
-<h1>Welcome to Tiffino <img src="assets/Pause GIF image.gif" alt="Welcome GIF" style="height: 80px;" /></h1>
-<nav>
-  <a routerLink="/">Home</a> |
-  <a routerLink="/cuisines">Cuisines</a> |
-  <a routerLink="/subscriptions">Subscriptions</a> |
-  <a routerLink="/login">Login</a> |
-  <a routerLink="/register">Register</a> |
-  <a routerLink="/profile">Profile</a> |
-   <a routerLink="/contact">Contact</a> |
+<h1 class="text-center">Welcome to Tiffino <img src="assets/Pause GIF image.gif" alt="Welcome GIF" style="height: 80px;" /></h1>
+<div class="navbar">
+  <div class="menu-icon" (click)="toggleSidebar()">☰</div>
 
-</nav>
+  <ul class="lis">
+    <li><a routerLink="/home">Home</a></li>
+    <li><a routerLink="/cuisines">Cuisines</a></li>
+    <li><a routerLink="/login">Login</a></li>
+    <li><a routerLink="/register">Register</a></li>
+    <li><a routerLink="/contact">Contact</a></li>
+    <li><a routerLink="/profile">Profile</a></li>
+  </ul>
+
+     
+
+  <!-- Sidebar -->
+  <div class="sidebar" [class.open]="isSidebarOpen">
+    <span class="close-btn" (click)="toggleclosin()">×</span>
+    <ul>
+      
+      <li><a routerLink="/cuisines">food-cart</a></li>
+      <li><a routerLink="/mealavailability">meal-availability</a></li>
+      <li><a routerLink="/mealplane">meal-plan</a></li>
+      <li><a routerLink="/membership">membership</a></li>
+      <li><a routerLink="/menu">menu</a></li>
+      <li><a routerLink="/menulist">menu-list</a></li>
+      <li><a routerLink="/ordertrack">order-tracking</a></li>
+      <li><a routerLink="/restaurant">restaurant</a></li>
+       <li><a routerLink="/profile">checkout</a></li>
+          
+      <hr />
+      
+    </ul>
+  </div>
+</div>
 <router-outlet></router-outlet>

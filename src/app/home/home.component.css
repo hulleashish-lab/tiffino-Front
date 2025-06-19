@@ -1,0 +1,90 @@
+.better-food-section {
+  position: relative;
+  background-color: #ffffff;
+  background-clip: border-box;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+ 
+}
+
+.center-text {
+  z-index: 2;
+}
+
+.headline {
+  font-size: 3.5rem;
+  color: #f0434a;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.headline span {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.subtext {
+  color: #050505;
+  font-size: 1.5rem;
+  margin-top: 15px;
+  font-style: normal;
+  font-weight:400px;
+}
+
+.food-img,
+.decoration {
+  position: absolute;
+  z-index: 1;
+  max-width: 180px;
+}
+
+.meals {
+  bottom: 10%;
+  left: 10%;
+  width: 160px;
+  border-radius: 150px;
+}
+
+.poha {
+  top: 5%;
+  right: 10%;
+  height:150px;
+  width: 160px;
+  border-radius: 500px;
+}
+.dosa{
+  top:5%;
+  left: 10%;
+  height:150px;
+  width:160px;
+  border-radius:100px;
+
+}
+
+
+.vadapav {
+  right: 10%;
+  top: 60%;
+  width: 140px;
+  height:150px;
+  border-radius: 70px;
+}
+
+.leaf {
+  top: 10%;
+  left: 50%;
+  width: 30px;
+}
+.biryani{
+ bottom: 10%;
+  left: 45%;
+  width: 160px;
+  height:120px;
+  border-radius: 300px;
+}
+
