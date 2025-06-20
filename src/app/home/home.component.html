@@ -98,6 +98,19 @@
 </div>
 
 
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 mb-3" *ngFor="let state of states; let i = index">
+      <a href="#" class="text-decoration-none">
+        <div class="p-3 h5 d-flex flex-start border border-1 border-dark rounded-start text-white" style="background-color:rgb(0, 0, 0)">
+          {{ i + 1 }}. {{ state }}
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+
 
 <div class="better-food-section">
   <!-- Decorative Images -->
@@ -107,7 +120,8 @@
   <img src="./assets/images/vadapav.jpg" class="decoration vadapav" alt="vadapav" />
   <img src="./assets/images/leaf.png" class="decoration leaf" alt="Leaf" />
     <img src="./assets/images/biryani.jpeg" class="decoration biryani" alt="biryani" />
- 
+
+
 
   
 
