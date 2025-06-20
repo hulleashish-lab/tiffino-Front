@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { FooterComponent } from '../footer/footer.component';
 interface FoodItem {
   foodItemName: string;
@@ -8,10 +9,13 @@ interface FoodItem {
   foodstate:string;
   foodImage: string; // URL for the image
 }
+=======
+
+>>>>>>> 3b81af0883e9a7d0e7a6170ac14b086587f08c2b
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FooterComponent],
+  imports: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
