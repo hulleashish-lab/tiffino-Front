@@ -13,6 +13,9 @@ import { ForgatePasswordComponent } from './forgate-password/forgate-password.co
 import { AddTocartComponent } from './add-tocart/add-tocart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 
+import { FoodcartComponent } from './foodcart/foodcart.component';
+
+
 export const routes: Routes = [
   
   { path: '', component: HomeComponent },
@@ -27,7 +30,11 @@ export const routes: Routes = [
 {path: 'Account-Registration',component: AccountRegistrationComponent} ,
 {path: 'forgate-password',component : ForgatePasswordComponent},
 
+{path: 'foodcart',component : FoodcartComponent},
+
+
 {path:'addtocart',component:AddTocartComponent},
 {path:'wishlist',component:WishlistComponent}
+
 
 ];
