@@ -1,4 +1,11 @@
 
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  color: #fd8300;
+  margin-left: 50px; /* optional */
+}
 .navbar {
   display: flex;
   align-items: center;
@@ -262,7 +269,7 @@ router-outlet {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition:  0.3s ease, transform 0.2s ease;
 }
 
 .add-btn:hover {
@@ -606,4 +613,3 @@ router-outlet {
         padding: 1px 3px;
     }
 }
-*/
