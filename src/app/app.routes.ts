@@ -29,12 +29,12 @@ export const routes: Routes = [
 { path: 'admin-login', component: AdminLoginComponent },
 {path: 'Account-Registration',component: AccountRegistrationComponent} ,
 {path: 'forgate-password',component : ForgatePasswordComponent},
-<<<<<<< HEAD
-{path: 'foodcart',component : FoodcartComponent}
-=======
+
+{path: 'foodcart',component : FoodcartComponent},
+
 
 {path:'addtocart',component:AddTocartComponent},
 {path:'wishlist',component:WishlistComponent}
->>>>>>> 9a5c4100073b2b831192f5e54fd39d875792b5ab
+
 
 ];
