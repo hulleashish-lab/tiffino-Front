@@ -1,3 +1,4 @@
+import { DefaulthomeComponent } from './defaulthome/defaulthome.component';
 import { ContactComponent } from './contact/contact.component';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -11,7 +12,9 @@ import { AccountRegistrationComponent } from './account-registration/account-reg
 import { ForgatePasswordComponent } from './forgate-password/forgate-password.component';
 import { AddTocartComponent } from './add-tocart/add-tocart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+
 export const routes: Routes = [
+  {path:'',component:DefaulthomeComponent},
   { path: 'home', component: HomeComponent },
   { path: 'cuisines', component: CuisinesComponent },
   { path: 'subscriptions', component: SubscriptionsComponent },
