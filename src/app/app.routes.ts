@@ -12,6 +12,9 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AccountRegistrationComponent } from './account-registration/account-registration.component';
 import { ForgatePasswordComponent } from './forgate-password/forgate-password.component';
 
+import { FoodcartComponent } from './foodcart/foodcart.component';
+
+
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'cuisines', component: CuisinesComponent },
@@ -23,6 +26,7 @@ export const routes: Routes = [
 
 { path: 'admin-login', component: AdminLoginComponent },
 {path: 'Account-Registration',component: AccountRegistrationComponent} ,
-{path: 'forgate-password',component : ForgatePasswordComponent}
+{path: 'forgate-password',component : ForgatePasswordComponent},
+{path: 'foodcart',component : FoodcartComponent}
 
 ];
