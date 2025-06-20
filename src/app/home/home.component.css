@@ -56,6 +56,9 @@
   height:150px;
   width: 160px;
   border-radius: 500px;
+  transform: translateX(100px); /* Right side */
+  animation: slideInRight 0.7s ease-out forwards;
+
 }
 .dosa{
   top:5%;
@@ -87,4 +90,28 @@
   height:120px;
   border-radius: 300px;
 }
+
+.food-img,
+.decoration {
+  opacity: 0;
+  transform: translateX(-100px);
+  animation:  slideInLeft 0.7s ease-out forwards;
+}
+
+/* Optional delay for staggered entry */
+.food-img:nth-child(1) { animation-delay: 0.1s; }
+.food-img:nth-child(2) { animation-delay: 0.2s; }
+.food-img:nth-child(3) { animation-delay: 0.3s; }
+.decoration:nth-child(4) { animation-delay: 0.4s; }
+.decoration:nth-child(5) { animation-delay: 0.5s; }
+.decoration:nth-child(6) { animation-delay: 0.6s; }
+
+/* Animation keyframes */
+@keyframes  slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 

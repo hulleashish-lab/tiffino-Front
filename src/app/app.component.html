@@ -1,7 +1,8 @@
-<h1 class="text-center">Welcome to Tiffino <img src="assets/Pause GIF image.gif" alt="Welcome GIF" style="height: 80px;" /></h1>
+<h1 class="heading"> Tiffino <img src="assets/Pause GIF image.gif" alt="Welcome GIF" style="height: 80px;" /></h1>
 <div class="navbar">
   <div class="menu-icon" (click)="toggleSidebar()">☰</div>
 
+  
   <ul class="lis">
     <li><a routerLink="/home">Home</a></li>
     <li><a routerLink="/cuisines">Cuisines</a></li>
@@ -10,6 +11,9 @@
     <li><a routerLink="/register">Register</a></li>
     <li><a routerLink="/contact">Contact</a></li>
     <li><a routerLink="/profile">Profile</a></li>
+   <li><a routerLink="/admin-login">Admin Login</a> </li> 
+    <li><a routerLink="/addtocart"><img src="assets/images/Add to cart.jpg" style="height:30px;width:30px;"/></a> </li>
+   <li><a routerLink="/wishlist"><img src="assets/images/wish 1.PNG" style="height:35px;width:35px;"/></a> </li>
   </ul>
 
      
@@ -34,4 +38,7 @@
     </ul>
   </div>
 </div>
+
 <router-outlet></router-outlet>
+
+
