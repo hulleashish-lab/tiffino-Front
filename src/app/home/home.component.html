@@ -100,7 +100,7 @@
 
 <div class="container mt-4">
   <div class="row">
-    <div class="col-12 col-sm-6 col-md-4 mb-3" *ngFor="let state of states; let i = index">
+    <div class="col-12 col-sm-3 col-md-4 mb-3" *ngFor="let state of states; let i = index">
       <a href="#" class="text-decoration-none">
         <div class="p-3 h5 d-flex flex-start border border-1 border-dark rounded-start text-white" style="background-color:rgb(0, 0, 0)">
           {{ i + 1 }}. {{ state }}
@@ -132,7 +132,17 @@
        we’ve provide  our customers to discover new tasty, and we<br />
       deliver right to their doorstep
     </h2>
+    <a routerLink="/subscriptions" class="h4 text text-decoration-none border-2 bg-danger border rounded-pill">Let's Make subscription for more offers</a>
   </div>
 </div>
-<img src="./assets/images/28896591.jpg" style="width:1200px;height:600px;border-radius: 400px;"/>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12 text-center"> <img src="./assets/images/28896591.jpg"
+           class="img-fluid rounded-circle d-block mx-auto"
+           alt="Responsive Image Description"
+           style="max-width: 1200px; height: auto;"
+      />
+    </div>
+  </div>
+</div>
 <app-footer></app-footer>
