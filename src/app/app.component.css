@@ -106,6 +106,7 @@ display: flex;
 router-outlet {
   display: block;
   padding: 10px;
+
  
 }
 

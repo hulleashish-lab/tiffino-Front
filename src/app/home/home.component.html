@@ -73,30 +73,29 @@
 
 <div class="container mt-4">
   <div class="row">
-    <div class="col-md-3  col-sm-2 mb-4" *ngFor="let m of indianFoodItems">
+    <div class="col-md-3 col-sm-2 mb-4" *ngFor="let m of indianFoodItems; let i = index">
       <div class="card h-70">
-        <img [src]="m.foodImage" [alt]="m.foodItemName" class="card-img-top h-40 w-100 " />
+        <img [src]="m.foodImage" [alt]="m.foodItemName" class="card-img-top h-40 w-100" />
 
         <div class="card-body food-details">
           <h5 class="card-title food-title">{{ m.foodItemName }}</h5>
-          <p class="card-text ">{{ m.foodCategory }}, {{ m.foodLocation }}</p>
+          <p class="card-text">{{ m.foodCategory }}, {{ m.foodLocation }}</p>
           <p class="card-text text-muted food-meta">📍 {{ m.foodstate }} • 30 mins</p>
           <p class="card-text text-success food-offer">🔥 50% OFF up to ₹100</p>
         </div>
 
         <div class="card-footer d-flex justify-content-between align-items-center quantity-price">
           <div class="btn-group quantity-controls">
-            <button class="btn btn-outline-secondary btn-sm" (click)="decrease()">−</button>
-            <span class="mx-2">{{quantity}}</span>
-            <button class="btn btn-outline-secondary btn-sm" (click)="increase()">+</button>
+            <button class="btn btn-outline-secondary btn-sm" (click)="decrease(i)">−</button>
+            <span class="mx-2">{{ m.quantity || 1 }}</span>
+            <button class="btn btn-outline-secondary btn-sm" (click)="increase(i)">+</button>
           </div>
-          <span class="text-primary fw-bold">₹{{ m.foodItemPrice*quantity }}</span>
+          <span class="text-primary fw-bold">₹{{ m.foodItemPrice * (m.quantity || 1) }}</span>
         </div>
       </div>
     </div>
   </div>
 </div>
-
 
 
 <div class="better-food-section">
