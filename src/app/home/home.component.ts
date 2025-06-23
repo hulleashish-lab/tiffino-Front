@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { FooterComponent } from '../footer/footer.component';
 interface FoodItem {
   foodItemName: string;
@@ -16,7 +17,7 @@ interface FoodItem {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FooterComponent,CommonModule],
+  imports: [FooterComponent,CommonModule,RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -99,4 +100,40 @@ increase(index: number): void {
       this.indianFoodItems[index].quantity--;
     }
   }
+
+
+
+states=[
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal"
+]
 }
+
+
+
