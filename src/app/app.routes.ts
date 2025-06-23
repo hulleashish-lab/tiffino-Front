@@ -12,12 +12,12 @@ import { AccountRegistrationComponent } from './account-registration/account-reg
 import { ForgatePasswordComponent } from './forgate-password/forgate-password.component';
 import { AddTocartComponent } from './add-tocart/add-tocart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { FoodcartComponent } from './foodcart/foodcart.component';
-
+import { RatingReviewComponent } from './Rating&Review/Rating&review.component';
 
 export const routes: Routes = [
-  
+  {path:'review',component:RatingReviewComponent},
   { path: '', component: HomeComponent },
   { path: 'cuisines', component: CuisinesComponent },
   { path: 'subscriptions', component: SubscriptionsComponent },
