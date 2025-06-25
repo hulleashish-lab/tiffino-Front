@@ -1,0 +1,91 @@
+
+
+
+
+<div class="review-section-bg">
+<div class="review-container">
+  <h2>Leave a Review</h2>
+
+  <form [formGroup]="reviewForm" (ngSubmit)="submitReview()">
+    <div class="stars">
+      <i *ngFor="let star of [1,2,3,4,5]"
+         class="star"
+         [class.filled]="star <= (hoveredRating || currentRating)"
+         (click)="onStarClick(star)"
+         (mouseover)="onStarHover(star)"
+         (mouseleave)="onStarLeave()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+      </i>
+    </div>
+
+    <textarea formControlName="reviewText" placeholder="Write your review..."></textarea>
+   
+  
+
+   <div class="upload-card">
+  <div class="card-body">
+    <!-- Camera Icon -->
+    <div class="upload-header">
+      <i class="bi bi-camera-fill w-40" ></i>
+      <span>Upload a Review Image</span>
+    </div>
+
+    <!-- File Input -->
+    <input type="file" (change)="onImageUpload($event)" class="file-input" />
+
+    <!-- Image Preview -->
+    <img *ngIf="imagePreview" [src]="imagePreview" class="preview" />
+  </div>
+</div>
+
+    <button type="submit" [disabled]="reviewForm.invalid" class=" rounded-1 btn btn-success">Submit Review</button>
+    <button (click)="shareOnInstagram()" class="btn btn-dark">📤 Share Review</button>
+  </form>
+
+  <h3>Community Favorites</h3>
+  <div *ngFor="let fav of communityFavorites" class="favorite ">
+    <strong>{{ fav.user }}</strong> - {{ fav.rating }} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+    <p>{{ fav.reviewText }}</p>
+  </div>
+
+  <h3>All Reviews</h3>
+  <div *ngFor="let review of reviews" class="review card">
+    <div class="header">
+      <strong>{{ review.user }}</strong> - {{ review.rating }} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg> - {{ review.date | date:'short' }}
+    </div>
+    <p>{{ review.reviewText }}</p>
+    <img *ngIf="review.imageUrl" [src]="review.imageUrl" class="review-img" />
+
+    <div class="actions">
+      <button (click)="likeReview(review)"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+</svg> {{ review.likes }}</button>
+      <button (click)="share(review)"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+  <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9q-.13 0-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+  <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4 4 0 0 1-.82 1H12a3 3 0 1 0 0-6z"/>
+</svg> Share</button>
+    </div>
+
+    <div class="comments">
+      <div *ngFor="let c of review.comments" class="comment"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="black" class="bi bi-chat-right-text-fill" viewBox="0 0 16 16">
+  <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353zM3.5 3h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1m0 2.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1m0 2.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1"/>
+</svg> {{ c }}</div>
+      <input [(ngModel)]="commentInputs[review.id]" placeholder="Add a comment..." />
+      <button (click)="addComment(review)">Post</button>
+    </div>
+  </div>
+
+</div>
+<h1  class="h1 text-center fw-bold" style="margin-top: 20px;">Click icon to Make post on Social media </h1>
+  <div class="d-flex justify-content-center " style="margin-top: 20px;">
+    <a href="https://www.instagram.com/"  ><img src="assets/instagram.png" width="50px" height="50px;" style="position:relative; margin-right:20px;" /></a>
+  <a href="https://www.facebook.com/"  ><img src="assets/facebook.png" width="50px" height="50px;" style="position:relative; margin-right:20px;"/></a>
+</div>
+</div>
+

@@ -12,12 +12,21 @@ import { AccountRegistrationComponent } from './account-registration/account-reg
 import { ForgatePasswordComponent } from './forgate-password/forgate-password.component';
 import { AddTocartComponent } from './add-tocart/add-tocart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+
 import { FoodcartComponent } from './foodcart/foodcart.component';
 import { MembershipPlanComponent } from './membership-plan/membership-plan.component';
 
 
+
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { RatingReviewComponent } from './Rating&Review/Rating&Review.component';
+import { PaymentcheckoutpageComponent } from './paymentcheckoutpage/paymentcheckoutpage.component';
+import { OffersRewardsComponent } from './offers-rewards/offers-rewards.component';
+
 export const routes: Routes = [
-  
+  {path:'checkpayment',component:PaymentcheckoutpageComponent},
+  {path:'review',component:RatingReviewComponent},
   { path: '', component: HomeComponent },
   { path: 'cuisines', component: CuisinesComponent },
   { path: 'subscriptions', component: SubscriptionsComponent },
@@ -34,7 +43,8 @@ export const routes: Routes = [
 {path: 'MembershipPlan',component : MembershipPlanComponent},
 
 {path:'addtocart',component:AddTocartComponent},
-{path:'wishlist',component:WishlistComponent}
+{path:'wishlist',component:WishlistComponent},
+{path:'offers',component:OffersRewardsComponent}
 
 
 ];
