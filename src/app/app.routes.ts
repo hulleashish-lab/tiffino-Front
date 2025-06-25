@@ -12,8 +12,8 @@ import { AccountRegistrationComponent } from './account-registration/account-reg
 import { ForgatePasswordComponent } from './forgate-password/forgate-password.component';
 import { AddTocartComponent } from './add-tocart/add-tocart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
-
 import { FoodcartComponent } from './foodcart/foodcart.component';
+import { MembershipPlanComponent } from './membership-plan/membership-plan.component';
 
 
 export const routes: Routes = [
@@ -27,11 +27,11 @@ export const routes: Routes = [
   {path:'contact',component:ContactComponent},
 
 { path: 'admin-login', component: AdminLoginComponent },
-{path: 'Account-Registration',component: AccountRegistrationComponent} ,
+{path: 'Account-Registration',component: AccountRegistrationComponent},
 {path: 'forgate-password',component : ForgatePasswordComponent},
 
 {path: 'foodcart',component : FoodcartComponent},
-
+{path: 'MembershipPlan',component : MembershipPlanComponent},
 
 {path:'addtocart',component:AddTocartComponent},
 {path:'wishlist',component:WishlistComponent}
