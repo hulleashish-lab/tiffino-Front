@@ -27,7 +27,7 @@ export class HomeComponent {
  indianFoodItems:FoodItem[] = [
   {
     foodItemName: "Butter Chicken",
-    foodItemPrice: 350.00,
+    foodItemPrice: 150.00,
     foodLocation: "North Indian Kitchen",
     foodCategory: "Main Course",
     foodstate:"andhra pradesh",
@@ -64,30 +64,30 @@ export class HomeComponent {
   },
   {
     foodItemName: "Biryani (Chicken)",
-    foodItemPrice: 420.00,
+    foodItemPrice: 120.00,
     foodLocation: "Hyderabad Biryani House",
     foodCategory: "Rice Dish",
      foodstate:"andhra pradesh",
     foodImage: "https://thumbs.dreamstime.com/b/steaming-hot-chicken-biryani-being-served-black-bowl-delicious-chicken-biryani-being-served-black-bowl-dinner-327737182.jpg",
-    quantity:1 // Placeholder image
+    quantity:0 // Placeholder image
   },
   {
     foodItemName: "Gulab Jamun (2 pcs)",
-    foodItemPrice: 90.00,
+    foodItemPrice:140.00,
     foodLocation: "Sweet Corner",
     foodCategory: "Dessert",
      foodstate:"andhra pradesh",
     foodImage: "https://i0.wp.com/aartimadan.com/wp-content/uploads/2020/11/milk-powder-gulab-jamuns.jpg?fit=1000%2C561&ssl=1" ,
-    quantity:1// Placeholder image
+    quantity:0// Placeholder image
   },
   {
     foodItemName: "Meals",
-    foodItemPrice: 180.00,
+    foodItemPrice: 120.00,
     foodLocation: "south Indian restaurent",
     foodCategory: "Main Course",
     foodstate:"andhra pradesh",
     foodImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeSJmtfYzuOmQQD9xscbzOoO_ZfJYoZDTvXQ&s" ,
-    quantity:1// Placeholder image
+    quantity:0// Placeholder image
   },
 ];
 

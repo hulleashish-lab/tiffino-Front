@@ -14,9 +14,11 @@ import { AddTocartComponent } from './add-tocart/add-tocart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FoodcartComponent } from './foodcart/foodcart.component';
-import { RatingReviewComponent } from './Rating&Review/Rating&review.component';
-
+import { RatingReviewComponent } from './Rating&Review/Rating&Review.component';
+import { PaymentcheckoutpageComponent } from './paymentcheckoutpage/paymentcheckoutpage.component';
+import { OffersRewardsComponent } from './offers-rewards/offers-rewards.component';
 export const routes: Routes = [
+  {path:'checkpayment',component:PaymentcheckoutpageComponent},
   {path:'review',component:RatingReviewComponent},
   { path: '', component: HomeComponent },
   { path: 'cuisines', component: CuisinesComponent },
@@ -34,7 +36,8 @@ export const routes: Routes = [
 
 
 {path:'addtocart',component:AddTocartComponent},
-{path:'wishlist',component:WishlistComponent}
+{path:'wishlist',component:WishlistComponent},
+{path:'offers',component:OffersRewardsComponent}
 
 
 ];

@@ -1,0 +1,257 @@
+.rewards-container {
+  padding: 20px;
+  background-color: #eeeeee;
+  font-family: Arial, sans-serif;
+}
+
+.rewards-card {
+  background: linear-gradient(135deg, #8e24aa, #6a1b9a);
+  color: white;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cashback-info {
+  width: 100%;
+  max-width: 60%;
+}
+
+.points-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px; /* Reduced gap between cashback and streak */
+}
+
+.cashback-block,
+.streak-block {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.label {
+  font-size: 14px;
+  margin: 0;
+}
+
+.amount {
+  margin: 4px 0;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.streak-points {
+  margin: 6px 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.timestamp {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+.gift-box img {
+  width: 400px;
+  height: 300px;
+  border-radius: 10px;
+}
+@media screen and (min-width: 400px) {
+ .gift-box img {
+    width:150px;
+    height:200px;
+  }
+}
+@media screen and (min-width: 375px) {
+ .gift-box img {
+    width:100px;
+    height:150px;
+  }
+}
+
+
+
+
+.cashback-card {
+  width: 100%;
+  max-width: 360px;
+  background: #e9dede;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  font-family: "Segoe UI", Roboto, sans-serif;
+  margin-top: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Overlay */
+.scratch-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2e7d32;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.scratch-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #444;
+}
+
+.cashback-content.hidden {
+  visibility: hidden;
+}
+
+/* Cashback content styles */
+.cashback-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.cashback-header .icon {
+  width: 40px;
+  height: 40px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4a148c;
+}
+
+.cashback-amount {
+  font-size: 40px;
+  font-weight: bold;
+  color: #2e7d32;
+  text-align: center;
+  margin: 12px 0;
+}
+
+.cashback-footer {
+  font-size: 13px;
+  color: #666;
+  text-align: center;
+}
+
+.timestamp {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #999;
+}
+
+
+
+.referral-card.vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #e5e2e6;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.referral-image img {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.referral-title {
+  font-size: 20px;
+  color: #4a148c;
+  margin-bottom: 10px;
+}
+
+.referral-text {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.referral-steps {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+.refer-button {
+  background-color: #7b1fa2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.refer-button:hover {
+  background-color: #6a1b9a;
+}
+
+
+.offer-card {
+  border-radius: 12px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.offer-card:hover {
+  transform: translateY(-4px);
+}
+.offer-img-wrapper {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.offer-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+
+
+.promo-card {
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.promo-card:hover {
+  transform: translateY(-4px);
+}
+
+.promo-code-box {
+  background-color: #f1f1f1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-family: monospace;
+}
+
+.code-text {
+  font-weight: 600;
+  font-size: 14px;
+}

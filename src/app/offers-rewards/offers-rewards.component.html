@@ -1,0 +1,199 @@
+<!--<div class="rewards-container">
+  <h1>Offers & Rewards</h1>
+
+  <section class="reward-card">
+    <h2>Loyalty Points</h2>
+    <p>Earn points for every order placed. Redeem them for discounts or freebies on future orders.</p>
+  </section>
+
+  <section class="reward-card">
+    <h2>Referral Bonuses</h2>
+    <p>Invite friends to join and earn credits for both you and your friend.</p>
+  </section>
+
+  <section class="reward-card">
+    <h2>Exclusive Offers & Discounts</h2>
+    <p>Enjoy monthly offers, cuisine-based discounts, and early access to new menus.</p>
+  </section>
+
+  <section class="reward-card">
+    <h2>Streak Rewards</h2>
+    <p>Order for 5, 10, or 30 days in a row to earn rewards like badges, discounts, or free meals.</p>
+  </section>
+
+  <section class="reward-card">
+    <h2>Special Occasion Rewards</h2>
+    <p>Celebrate birthdays, anniversaries, and festivals with exclusive treats and discounts.</p>
+  </section>
+
+  <section class="reward-card">
+    <h2>Milestone Rewards</h2>
+    <p>Unlock surprise gifts for your 100th order, 1-year subscription, and more.</p>
+  </section>
+
+  <section class="reward-card">
+    <h2>Gift Card Customization</h2>
+    <p>Create personalized gift cards with messages and meal suggestions tailored to your recipient.</p>
+  </section>
+
+  <section class="reward-card">
+    <h2>Gifting Reminders</h2>
+    <p>Get timely reminders for birthdays and holidays with curated gift ideas and festive meals.</p>
+  </section>
+</div>-->
+<div class="d-flex justify-content-flex-start gap-4">
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+  <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1"/>
+</svg>
+<h2 class="">Rewards and Offers</h2>
+</div>
+<div class="rewards-container">
+  <div class="rewards-card">
+    <div class="cashback-info">
+      <div class="points-row">
+        <div class="cashback-block">
+          <p class="label">Total Points Won</p>
+          <h1 class="amount">{{ cashbackPoints }}</h1>
+        </div>
+
+        <div class="streak-block">
+          <p class="label">Streak Points</p>
+          <h2 class="streak-points">🔥 {{ streakPoints }}</h2>
+        
+        </div>
+      </div>
+
+      <p class="timestamp">Last updated: Just now</p>
+      <button class="btn btn-primary">REDEEM POINTS </button>
+    </div>
+ 
+    <div class="gift-box ">
+      <img src="https://www.shutterstock.com/image-vector/cash-back-cashback-payment-money-260nw-2602704667.jpg" alt="Gift Box" />
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+<div class="row">
+  <div
+    class="col-md-4 col-12 col-sm-12"
+    *ngFor="let cashback of cashbacks; let i = index"
+  >
+    <div class="cashback-card">
+      <div
+        class="scratch-overlay"
+        *ngIf="!cashback.scratched"
+        (click)="scratchCard(i)"
+      >
+        <p class="scratch-text">Scratch to Reveal</p>
+      </div>
+
+      <div class="cashback-content" [class.hidden]="!cashback.scratched">
+        <div class="cashback-header">
+          <img src="assets/3d-open.jpg" alt="Gift" class="icon" />
+          <span class="title">Cashback Received</span>
+        </div>
+
+        <div class="cashback-amount">{{ cashback.amount }}points</div>
+
+        <div class="cashback-footer">
+          <p class="description">You've earned cashback on your last order!</p>
+          <p class="timestamp">Just now · ID #{{ cashback.txnId }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-4">
+  <h2 class="text-primary mb-4">Top Online Offers</h2>
+
+  <div class="row">
+    <div class="col-md-6 col-12 mb-4" *ngFor="let offer of offers">
+      <div class="card h-100 shadow-sm p-2">
+        <div class="d-flex align-items-center">
+          <!-- Image on the left -->
+          <div class="offer-img-wrapper me-3">
+            <img
+              [src]="offer.image"
+              class="img-fluid rounded offer-img"
+              alt="{{ offer.title }}"
+            />
+          </div>
+
+          <!-- Content on the right -->
+          <div class="flex-grow-1">
+            <h5 class="card-title mb-1">{{ offer.title }}</h5>
+            <p class="card-text mb-2">{{ offer.description }}</p>
+            <div class="d-flex gap-2">
+              <button class="btn btn-primary btn-sm">View Offer</button>
+              <button class="btn btn-danger btn-sm">Redeem Offer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-3" *ngIf="alertMessage">
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ alertMessage }}
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeAlert()"></button>
+  </div>
+</div>
+
+<div class="container my-4">
+  <h4 class="text-primary mb-3">Available Promo Codes</h4>
+
+  <div class="row">
+    <div class="col-md-4 col-sm-6 mb-4" *ngFor="let promo of promocodes">
+      <div class="card shadow-sm promo-card">
+        <div class="card-body">
+          <h5 class="card-title">{{ promo.title }}</h5>
+          <p class="card-text text-muted mb-2">{{ promo.subtitle }}</p>
+
+          <div class="promo-code-box d-flex justify-content-between align-items-center">
+            <span class="code-text">{{ promo.code }}</span>
+            <button class="btn btn-outline-primary btn-sm" (click)="copyCode(promo.code)">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="referral-card vertical">
+  <div class="referral-image">
+    <img src="assets/images/image-3.png" alt="Referral Gift" />
+  </div>
+
+  <div class="referral-content">
+    <h2 class="referral-title">Invite & Earn Cashback!</h2>
+
+    <p class="referral-text">
+      Share your referral link with your friends and family.
+      When they sign up and complete their first transaction,
+      you both get exciting cashback rewards. No limit on the number of invites!
+    </p>
+
+    <p class="referral-steps">
+      <strong>How it works:</strong><br />
+      1. Share your referral link<br />
+      2. Friend signs up using your link<br />
+      3. Both of you earn rewards after first payment<br/>
+      4.you`ll get cashback only when they install after your invitation<br/>
+      5.incase of they already installed our app the cashback wont be credited
+    </p>
+
+    <button class="refer-button" (click)="shareReferral()">Refer Now</button>
+  </div>
+</div>
+
+
+
+
