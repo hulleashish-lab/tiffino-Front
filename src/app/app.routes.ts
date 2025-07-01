@@ -16,13 +16,14 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { FoodcartComponent } from './foodcart/foodcart.component';
 import { MembershipPlanComponent } from './membership-plan/membership-plan.component';
 
-
-
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { RatingReviewComponent } from './Rating&Review/Rating&Review.component';
 import { PaymentcheckoutpageComponent } from './paymentcheckoutpage/paymentcheckoutpage.component';
 import { OffersRewardsComponent } from './offers-rewards/offers-rewards.component';
+
+
+
 
 export const routes: Routes = [
   {path:'checkpayment',component:PaymentcheckoutpageComponent},
