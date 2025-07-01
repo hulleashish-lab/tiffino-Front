@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RatingReviewComponent } from './Rating&Review/Rating&Review.component';
 import { PaymentcheckoutpageComponent } from './paymentcheckoutpage/paymentcheckoutpage.component';
 import { OffersRewardsComponent } from './offers-rewards/offers-rewards.component';
+import {paymentComponent} from './payment/payment.component';
 
 
 
@@ -45,7 +46,8 @@ export const routes: Routes = [
 
 {path:'addtocart',component:AddTocartComponent},
 {path:'wishlist',component:WishlistComponent},
-{path:'offers',component:OffersRewardsComponent}
+{path:'offers',component:OffersRewardsComponent},
+{path:'payment',component:paymentComponent}
 
 
 ];

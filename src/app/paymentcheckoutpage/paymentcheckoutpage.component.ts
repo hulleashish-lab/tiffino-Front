@@ -6,6 +6,8 @@ import Chart from 'chart.js/auto';
 import { ChartConfiguration } from 'chart.js';
 import { NgChartsConfiguration } from 'ng2-charts';
 import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-paymentcheckoutpage',
   standalone: true,
@@ -14,7 +16,10 @@ import { RouterLink } from '@angular/router';
   styleUrl: './paymentcheckoutpage.component.css'
 })
 export class PaymentcheckoutpageComponent {
-
+constructor(private router:Router){
+ 
+}
+ 
   
 paymentMethod = 'wallet';
 
@@ -34,7 +39,7 @@ paymentMethod = 'wallet';
   }
 
   confirmPayment() {
-    alert(`Payment successful via ${this.paymentMethod.toUpperCase()}!`);
+   this.router.navigate(['/payment']);
   }
 
 @ViewChild('indiaPieChart') chartRef!: ElementRef<HTMLCanvasElement>;
