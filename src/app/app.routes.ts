@@ -22,7 +22,7 @@ import { RatingReviewComponent } from './Rating&Review/Rating&Review.component';
 import { PaymentcheckoutpageComponent } from './paymentcheckoutpage/paymentcheckoutpage.component';
 import { OffersRewardsComponent } from './offers-rewards/offers-rewards.component';
 import {paymentComponent} from './payment/payment.component';
-
+import { SettingsComponent } from './settings/settings.component';
 
 
 
@@ -36,18 +36,16 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   {path:'contact',component:ContactComponent},
-
 { path: 'admin-login', component: AdminLoginComponent },
 {path: 'Account-Registration',component: AccountRegistrationComponent},
 {path: 'forgate-password',component : ForgatePasswordComponent},
-
 {path: 'foodcart',component : FoodcartComponent},
 {path: 'MembershipPlan',component : MembershipPlanComponent},
-
 {path:'addtocart',component:AddTocartComponent},
 {path:'wishlist',component:WishlistComponent},
 {path:'offers',component:OffersRewardsComponent},
-{path:'payment',component:paymentComponent}
+{path:'payment',component:paymentComponent},
+{path:'settings',component:SettingsComponent}
 
 
 ];

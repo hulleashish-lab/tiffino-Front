@@ -1,27 +1,60 @@
-.signup-container {
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 32px;
+.signup-wrapper {
+  display: flex;
+  max-width: 1000px;
+  margin: 60px auto;
   border-radius: 12px;
-  background: #fff;
+  overflow: hidden;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
-  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #fdfbfb, #ebedee);
+  min-height: 500px; /* Ensures a balanced layout */
 }
 
+/* Left: Image Section */
+.signup-image {
+  flex: 1;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Right: Form Section */
+.signup-container {
+  flex: 1;
+  background: #ffffff;
+  padding: 24px 32px;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 0;
+  height: auto;
+  min-height: 400px;
+}
+
+/* Headings */
 .signup-container h2 {
   font-size: 22px;
   color: #e23744;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
+/* Inputs */
 input[type="text"],
 input[type="email"],
-input[type="date"]
- {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 20px;
+input[type="date"] {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 14px;
   font-size: 15px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -33,15 +66,18 @@ input:focus {
   box-shadow: 0 0 4px rgba(226, 55, 68, 0.2);
 }
 
+/* Error Messages */
 .error p {
   color: red;
   font-size: 13px;
   margin: 0 0 8px;
+  width: 80%;
 }
 
+/* Buttons */
 button {
-  width: 100%;
-  padding: 14px;
+  width: 80%;
+  padding: 12px;
   background-color: #e23744;
   color: white;
   border: none;
@@ -50,6 +86,7 @@ button {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 10px;
 }
 
 button:disabled {
@@ -57,16 +94,15 @@ button:disabled {
   cursor: not-allowed;
 }
 
-
-
+/* Google Sign-In */
 .google-signin-btn {
-    margin-top: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* ⬅ Align content to the left */
   gap: 12px;
-  width: 100%;
-  padding: 12px 16px;
+  width: 80%;
+  padding: 12px;
+  margin-top: 14px;
   background-color: #ffffff;
   color: #444;
   font-size: 15px;
@@ -76,6 +112,7 @@ button:disabled {
   cursor: pointer;
   transition: background-color 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  align-self: flex-start; /* ⬅ Move the button itself to the left inside container */
 }
 
 .google-signin-btn img {
@@ -85,14 +122,36 @@ button:disabled {
 
 .google-signin-btn:hover {
   background-color: #0a0b0c;
+  color: white;
 }
 
+/* Checkbox & Terms */
+.form-check {
+  width: 80%;
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.form-check input {
+  margin-right: 6px;
+}
+
+.form-check a {
+  color: #e23744;
+  text-decoration: none;
+}
+
+.form-check a:hover {
+  text-decoration: underline;
+}
+
+/* Signup prompt */
 .signup-prompt {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  margin-top: 20px;
+  margin-top: 14px;
   font-size: 14px;
 }
 
@@ -107,6 +166,108 @@ button:disabled {
   text-decoration: underline;
 }
 
+/* Responsive (stack on smaller screens) */
+@media (max-width: 768px) {
+  .signup-wrapper {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .signup-image {
+    height: 200px;
+  }
+
+  .signup-image img {
+    height: 100%;
+  }
+
+  .signup-container {
+    border-radius: 0 0 12px 12px;
+    padding: 24px 20px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="date"],
+  button,
+  .google-signin-btn {
+    width: 100%;
+  }
+
+  .error p,
+  .form-check {
+    width: 100%;
+  }
+}
+
+.back {
+  background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20240411/pngtree-food-mockup-recipe-concept-image_15654335.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+:host {
+  display: block;
+  height: 100vh;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
 
+/* Popup card with increased height */
+.popup-card {
+  background-color: #fff;
+  padding: 40px;
+  height: 450px; /* ⬅️ Increased height */
+  width: 420px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 128, 0, 0.6);
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Green tick icon */
+.popup-icon {
+  font-size: 60px;
+  color: green;
+  margin-bottom: 20px;
+}
+
+/* Smooth fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

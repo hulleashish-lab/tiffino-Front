@@ -42,7 +42,7 @@ export class RegistrationService {
   }
 
   login(userLogin: UserLogin): Observable<User> {
-    return this.http.post<User>('https://fakestoreapi.com/products/1', userLogin).pipe(
+    return this.http.post<User>('api dummy', userLogin).pipe(
       tap({
         next: (user) => {
           // Save the logged in user to local storage and trigger a notification about it

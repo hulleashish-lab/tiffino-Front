@@ -1,7 +1,9 @@
 .split-screen {
   display: flex;
-  height: 100vh;
-  overflow: hidden;
+  height: 80vh;
+  overflow:hidden;
+  border-radius: 30px;
+  background-color: rgb(0, 0, 0);
 }
 
 /* Left Side */
@@ -110,5 +112,27 @@ button:hover {
   color: #e23744;
 }
 
+.back {
+  background-color:slategray;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+:host {
+  display: block;
+  height: 100vh;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
