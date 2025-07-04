@@ -1,8 +1,8 @@
 .contact-container {
-    width: 100%;
+    width: 95%;
     padding: 3rem 2rem;
-    background: linear-gradient(to right, #f7f7f7, #ffffff);
-    border-radius: 8px;
+    background: linear-gradient(to right, #ffffff, #ffffff);
+    border-radius: 12px;
 }
 
 .slider {
@@ -37,10 +37,10 @@
     text-align: center;
 }
 
-.logo-container img {
-    max-width: 150%;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.logo-container video {
+    max-width: 110%;
+ 
+ 
 }
 
 .form-container {
