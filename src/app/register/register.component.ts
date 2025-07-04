@@ -29,81 +29,99 @@ declare var particlesJS: any;
 export class RegisterComponent implements OnInit {
   signupForm!: FormGroup;
   isSubmit = false;
-datas:any;
-userData: any = null;
-showpopup: boolean = false;
-
-  returnUrl = ''; // This can be set from query params if needed
+  step: number = 1;
+  userData: any = null;
+  showpopup: boolean = false;
 
   constructor(
     private fb: FormBuilder,
-   
     private registrationService: RegistrationService,
-   private activatedRoute: ActivatedRoute, private router: Router // Inject the RegistrationService
-   // Inject ToastrService for feedback
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
 
-    ngOnInit(): void {
-      
-
-
-  
-
-    
-    // Initialize the form
+  ngOnInit(): void {
     this.signupForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(10)]],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-      dob: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required],
+      dob: ['', Validators.required],
+      roles: [[], Validators.required],
+      dietaryPreferences: [[]],
+      allergenPreferences: [[]],
+      profileImage: [''],
+      terms: [false, Validators.requiredTrue],
     });
-      /*this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/login';*/
-    }
+  }
 
-  // Getter for form controls
   get f() {
     return this.signupForm.controls;
   }
 
-  // Handle form submission
+  nextStep() {
+    if (this.step === 1) {
+      this.step = 2;
+    }
+  }
+
+  prevStep() {
+    if (this.step === 2) {
+      this.step = 1;
+    }
+  }
+
   onSubmit() {
     this.isSubmit = true;
-    if (this.signupForm.valid)  {
-      const fv = this.signupForm.value;
-      
-      const data: UserRegister = {
-        name: fv.name!,
-        email: fv.email!,
-        phone: fv.phone!,
-        dob: fv.dob!,
-      };
+    if (this.signupForm.invalid) return;
 
-      // Call the registration service to register the user
-      this.registrationService.register(data).subscribe({
-        next:(data) => {
-          this.datas=data.id;
+    const formValue = this.signupForm.value;
+    if (formValue.password !== formValue.confirmPassword) {
+      alert('Passwords do not match.');
+      return;
+    }
 
-          console.log(data.id);
-          this.userData = data;
-          this.showpopup = true;
-          setTimeout(() => {
-            this.showpopup = false;
-          }, 30000 * 1000);
-      /*this.router.navigateByUrl(this.returnUrl);*/
-       },
-          error: (error) => {
-          console.error('Registration error:', error);
-          // You could add an error message for the user here, e.g., using Toastr
-        },
-      
-      })
+    const userData: UserRegister = {
+      firstName: formValue.firstName,
+      lastName: formValue.lastName,
+      username: formValue.username,
+      email: formValue.email,
+      phoneNumber: formValue.phoneNumber,
+      password: formValue.password,
+      dob: formValue.dob,
+      roles: formValue.roles,
+      dietaryPreferences: formValue.dietaryPreferences,
+      allergenPreferences: formValue.allergenPreferences,
+      profileImage: formValue.profileImage,
+    };
+
+    this.registrationService.register(userData).subscribe({
+      next: (res) => {
+        this.userData = res;
+        this.showpopup = true;
+        setTimeout(() => {
+          this.showpopup = false;
+          this.router.navigate(['/login']);
+        }, 5000);
+      },
+      error: (err) => console.error('Registration failed:', err),
+    });
+      alert('Account Created: ' + JSON.stringify(this.signupForm.value, null, 2));
+    this.signupForm.reset();
+    this.step = 1;
+  }
+}
+
        
       // Optionally reset the form or display a success message
-      alert('Account Created: ' + JSON.stringify(this.signupForm.value, null, 2));
-      this.signupForm.reset();
-    }
     
-  }
+      
+    
+ 
    
-}
+
+
 

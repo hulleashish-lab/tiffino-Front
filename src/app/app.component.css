@@ -311,7 +311,7 @@ background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), #d43030);
 .sidebar {
   position: fixed;
   top: 0;
-  left: -260px; /* 👈 shift it off-screen to the left */
+  right: -260px; /* 👈 shift it off-screen to the left */
   width: 260px;
   height: 100%;
 /*background: linear-gradient(
@@ -331,7 +331,7 @@ background-image:linear-gradient(rgb(143, 141, 141),#5bbfce);
 
 /* Open state — bring sidebar into view from the left */
 .sidebar.open {
-  left: 0; /* 👈 move to visible */
+  right: 0; /* 👈 move to visible */
 }
 
 /* Close button */
@@ -339,7 +339,7 @@ background-image:linear-gradient(rgb(143, 141, 141),#5bbfce);
   font-size: 32px;
   position: absolute;
   top: 30px;
-  right: 40px;
+  left: 40px;
   cursor: pointer;
   color: #ffffff;
 }

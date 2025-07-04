@@ -51,7 +51,9 @@
 /* Inputs */
 input[type="text"],
 input[type="email"],
-input[type="date"] {
+input[type="date"],
+input[type="password"],
+select{
   width: 80%;
   padding: 10px;
   margin-bottom: 14px;
