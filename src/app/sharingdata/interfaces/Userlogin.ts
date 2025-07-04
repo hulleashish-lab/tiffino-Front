@@ -1,4 +1,5 @@
 export interface UserLogin{
-    phone:number;
+   email: string;
+    password: string;
    
 }

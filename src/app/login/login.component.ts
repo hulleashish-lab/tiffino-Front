@@ -29,13 +29,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      phone: ['', [
+      Email: ['', [
         Validators.required,
-        Validators.pattern(/^\d{10}$/)
-      ]]
+        Validators.email
+      ]],
+      password:['',Validators.required]
     });
      this.returnurl = this.activated.snapshot.queryParams['returnUrl'] || '/';
   }
+  
 
 
    get phoneControl() {
@@ -47,7 +49,8 @@ export class LoginComponent implements OnInit {
       const lv = this.loginForm.value
 
       const logindata:UserLogin={
-        phone:lv.phone!
+        email:lv.email!,
+        password:lv.password!,
       }
       this.registerservice
       .login(logindata)
