@@ -1,257 +1,213 @@
-.rewards-container {
-  padding: 20px;
-  background-color: #eeeeee;
-  font-family: Arial, sans-serif;
+body {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background: #f5f5f8;
+  margin: 0;
+  padding: 0;
+  color: #333;
 }
 
+/* === Header === */
+.d-flex svg {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.d-flex svg:hover {
+  transform: translateX(-4px);
+}
+
+/* === Loyalty Section === */
 .rewards-card {
   background: linear-gradient(135deg, #8e24aa, #6a1b9a);
-  color: white;
-  border-radius: 12px;
+  border-radius: 14px;
+  color: #fff;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
-
-.cashback-info {
-  width: 100%;
-  max-width: 60%;
+.rewards-card:hover {
+  transform: translateY(-5px);
 }
-
-.points-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px; /* Reduced gap between cashback and streak */
-}
-
-.cashback-block,
-.streak-block {
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
-}
-
-.label {
-  font-size: 14px;
+.amount {
+  font-size: 36px;
   margin: 0;
 }
-
-.amount {
-  margin: 4px 0;
-  font-size: 32px;
-  font-weight: bold;
+.loyalty {
+  font-size: 14px;
+  color: #ffe082;
 }
-
-.streak-points {
-  margin: 6px 0;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.timestamp {
-  font-size: 12px;
-  opacity: 0.8;
-  margin-top: 10px;
-}
-
 .gift-box img {
-  width: 400px;
-  height: 300px;
-  border-radius: 10px;
-}
-@media screen and (min-width: 400px) {
- .gift-box img {
-    width:150px;
-    height:200px;
-  }
-}
-@media screen and (min-width: 375px) {
- .gift-box img {
-    width:100px;
-    height:150px;
-  }
-}
-
-
-
-
-.cashback-card {
-  width: 100%;
-  max-width: 360px;
-  background: #e9dede;
+  width: 160px;
   border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  font-family: "Segoe UI", Roboto, sans-serif;
-  margin-top: 12px;
-  position: relative;
-  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.gift-box img:hover {
+  transform: rotate(-4deg) scale(1.05);
 }
 
-/* Overlay */
+/* === Scratch Cards === */
+.scratch-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.scratch-card:hover {
+  transform: translateY(-6px);
+}
+.scratch-top p {
+  font-weight: 500;
+  
+}
+.scratch-content {
+  margin-top: 12px;
+  animation: fadeInUp 0.5s ease-out;
+}
+.scratch-content.hidden {
+  visibility: hidden;
+}
 .scratch-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #2e7d32;
+  inset: 0;
+  background: repeating-linear-gradient(45deg, #eee, #eee 10px, #ddd 10px, #ddd 20px);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  z-index: 2;
-}
-
-.scratch-text {
-  font-size: 18px;
   font-weight: bold;
-  color: #444;
+  color: #555;
 }
 
-.cashback-content.hidden {
-  visibility: hidden;
+/* === Vouchers Section === */
+.voucher-card {
+  position: relative;
+  background: #fff;
+  border-radius: 14px;
+  padding: 22px 18px 18px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 6px solid #ff7043;
 }
-
-/* Cashback content styles */
-.cashback-header {
+.voucher-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+.voucher-header {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 12px;
 }
-
-.cashback-header .icon {
-  width: 40px;
-  height: 40px;
+.voucher-icon {
+  font-size: 30px;
 }
-
-.title {
-  font-size: 16px;
-  font-weight: 600;
-  color: #4a148c;
+.voucher-card h5 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
 }
-
-.cashback-amount {
-  font-size: 40px;
-  font-weight: bold;
-  color: #2e7d32;
-  text-align: center;
-  margin: 12px 0;
-}
-
-.cashback-footer {
-  font-size: 13px;
-  color: #666;
-  text-align: center;
-}
-
-.timestamp {
-  margin-top: 4px;
-  font-size: 12px;
-  color: #999;
-}
-
-
-
-.referral-card.vertical {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #e5e2e6;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  text-align: center;
-  max-width: 400px;
-  margin: 20px auto;
-}
-
-.referral-image img {
-  max-width: 150px;
-  height: auto;
-  margin-bottom: 16px;
-}
-
-.referral-title {
-  font-size: 20px;
-  color: #4a148c;
-  margin-bottom: 10px;
-}
-
-.referral-text {
+.voucher-card p {
+  margin: 6px 0;
   font-size: 14px;
   color: #555;
-  margin-bottom: 10px;
+}
+.countdown-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #d50000;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: bold;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+.btn-redeem {
+  margin-top: 16px;
+  display: block;
+  width: 100%;
+  background: #ff7043;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+.btn-redeem:hover {
+  background: #f4511e;
+}
+.btn-redeem:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+.btn-redeem a {
+  color: #fff;
+  text-decoration: none;
 }
 
-.referral-steps {
-  font-size: 13px;
-  color: #666;
+/* === Referral Section === */
+.referral-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 480px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.referral-card:hover {
+  transform: translateY(-5px);
+}
+.referral-image img {
+  max-width: 140px;
   margin-bottom: 16px;
 }
-
 .refer-button {
-  background-color: #7b1fa2;
+  margin-top: 14px;
+  padding: 12px 24px;
+  background: #6a1b9a;
   color: #fff;
   border: none;
   border-radius: 8px;
-  padding: 10px 20px;
   font-size: 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease;
 }
-
 .refer-button:hover {
-  background-color: #6a1b9a;
+  background: #4a148c;
 }
 
-
-.offer-card {
-  border-radius: 12px;
-  transition: transform 0.2s ease-in-out;
+/* === Animations === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(213, 0, 0, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(213, 0, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(213, 0, 0, 0); }
 }
 
-.offer-card:hover {
-  transform: translateY(-4px);
-}
-.offer-img-wrapper {
-  width: 100px;
-  height: 100px;
-  flex-shrink: 0;
-  background-color: #f8f9fa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.offer-img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-
-
-.promo-card {
-  border-radius: 12px;
-  transition: transform 0.2s ease;
-}
-
-.promo-card:hover {
-  transform: translateY(-4px);
-}
-
-.promo-code-box {
-  background-color: #f1f1f1;
-  padding: 10px 12px;
-  border-radius: 8px;
-  font-family: monospace;
-}
-
-.code-text {
-  font-weight: 600;
-  font-size: 14px;
+/* === Responsiveness === */
+@media (max-width: 768px) {
+  .voucher-card, .scratch-card {
+    max-width: 100%;
+  }
+  .gift-box img {
+    width: 140px;
+  }
 }

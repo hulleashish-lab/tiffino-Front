@@ -1,33 +1,29 @@
 
-<div class="checkout-card">
-  <h2 class="text-center">Checkout & Payment</h2>
+<div class="payment-container">
+  <h2>Payment Checkout</h2>
 
- 
-  <div class="summary-section">
-    <h4>Order Summary</h4>
-    <ul>
-      <li *ngFor="let item of orderSummary.items">{{ item.name }} - ₹{{ item.price }}</li>
-    </ul>
-    <p>Delivery: ₹{{ orderSummary.delivery }}</p>
-    <p>Tax: ₹{{ orderSummary.tax }}</p>
-    <hr>
-    <p><strong>Total: ₹{{ total }}</strong></p>
+  <div *ngIf="orderData && orderData.orderItems && cuisines.length; else loading" class="product-info">
+  <div *ngFor="let cus of cuisines; let i = index">
+    <h3 class="fw-bold">{{i+1}}:{{ cus.name }}</h3>
+   
+      <p class="ms-3"><strong>Price:</strong> ₹{{ cus.price_per_meal }}</p>
+    <p class="ms-3"><strong>Diet Preferences:</strong> {{ cus.dietary_preferences }}</p>
+    <p class="ms-3"><strong>Diet Preferences:{{cus.dietary_preferences}}</strong> </p>
+     <p class="ms-3"><strong>Spice Level:{{cus.spice_level}}</strong> </p>
+  </div>
+</div>
+  <div class="payment-options">
+    <h4>Select Payment Method:</h4>
+    <label><input type="radio" name="payment" value="UPI" [(ngModel)]="selectedPaymentMethod"> UPI</label>
+    <label><input type="radio" name="payment" value="CASH" [(ngModel)]="selectedPaymentMethod"> Cash</label>
   </div>
 
-   Payment Options 
-  <div class="payment-section">
-    <h4>Choose Payment Method</h4>
-    <label><input type="radio" name="method" value="wallet" [(ngModel)]="paymentMethod" /> Wallet (₹{{ orderSummary.walletBalance }})</label><br>
-    <label><input type="radio" name="method" value="card" [(ngModel)]="paymentMethod" /> Credit/Debit Card</label><br>
-    <label><input type="radio" name="method" value="upi" [(ngModel)]="paymentMethod" /> UPI</label>
-  </div>
-
-
- <button  class="btn btn-success w-100 mt-3" (click)="confirmPayment()">Confirm & Pay ₹{{ total }}</button>
- 
+  <button (click)="initiatePayment()" >Pay ₹{{ orderData.totalAmount }}</button>
 </div>
 
-
+<ng-template #loading>
+    <p>Loading order details...</p>
+  </ng-template>
 
 
 

@@ -1,17 +1,20 @@
+
 .signup-wrapper {
   display: flex;
+  flex-direction: row; /* Ensures side-by-side layout */
   max-width: 1000px;
   margin: 60px auto;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
   background: linear-gradient(to right, #fdfbfb, #ebedee);
-  min-height: 500px; /* Ensures a balanced layout */
+  min-height: 500px;
 }
 
-/* Left: Image Section */
 .signup-image {
-  flex: 1;
+  flex: 0 0 50%;
+  min-width: 50%;
+  max-width: 50%;
   background-color: #f8f8f8;
   display: flex;
   align-items: center;
@@ -19,15 +22,15 @@
 }
 
 .signup-image img {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   object-fit: cover;
   display: block;
 }
 
 /* Right: Form Section */
 .signup-container {
-  flex: 1;
+  flex: 0 0 50%;
   background: #ffffff;
   padding: 24px 32px;
   font-family: 'Segoe UI', sans-serif;
@@ -36,8 +39,7 @@
   justify-content: flex-start;
   align-items: center;
   border-radius: 0;
-  height: auto;
-  min-height: 400px;
+  min-height: 500px;
 }
 
 /* Headings */
@@ -53,14 +55,21 @@ input[type="text"],
 input[type="email"],
 input[type="date"],
 input[type="password"],
+input[type="number"],
+input[type=file],
+ input[type="text"],
+  input[type="email"],
+  input[type="date"],
 select{
   width: 80%;
+  min-width: 250px; /* Ensure a minimum width */
   padding: 10px;
   margin-bottom: 14px;
   font-size: 15px;
   border: 1px solid #ddd;
   border-radius: 8px;
   outline: none;
+  margin-left: 40px;
 }
 
 input:focus {
@@ -74,11 +83,13 @@ input:focus {
   font-size: 13px;
   margin: 0 0 8px;
   width: 80%;
+  margin-left: 60px;
 }
 
 /* Buttons */
 button {
-  width: 80%;
+  width: 350px;
+ 
   padding: 12px;
   background-color: #e23744;
   color: white;
@@ -89,6 +100,7 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 10px;
+  margin-left: 40px;
 }
 
 button:disabled {
@@ -97,36 +109,27 @@ button:disabled {
 }
 
 /* Google Sign-In */
-.google-signin-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* ⬅ Align content to the left */
-  gap: 12px;
-  width: 80%;
-  padding: 12px;
-  margin-top: 14px;
-  background-color: #ffffff;
-  color: #444;
-  font-size: 15px;
-  font-weight: 500;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+
+.google-signin-button {
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
-  align-self: flex-start; /* ⬅ Move the button itself to the left inside container */
+  transition: all 0.3s ease;  /* Smooth transition for hover effect */
+  margin-left: 40px;  /* Moves it to the left */
+  margin-right: auto; 
+  margin-top: 10px;
+   background-color: rgb(255, 255, 255);    /* Black background */
+  color: rgb(0, 0, 0) !important;
+  border: 2px solid black;/* Smooth transition for hover effect */
 }
 
-.google-signin-btn img {
-  width: 20px;
-  height: 20px;
+
+.google-signin-button:hover {
+  background-color: #000000 !important;  /* Darker background on hover */
+  color: rgb(230, 230, 230) !important;             /* White text on hover */
 }
 
-.google-signin-btn:hover {
-  background-color: #0a0b0c;
-  color: white;
+.google-signin-button img {
+  margin-right: 10px; /* Space between the Google icon and text */
 }
-
 /* Checkbox & Terms */
 .form-check {
   width: 80%;
@@ -151,10 +154,13 @@ button:disabled {
 .signup-prompt {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 14px;
-  font-size: 14px;
+  justify-content: center;  /* Center horizontally */
+  gap: 3px;
+  margin-top: 2px;  /* Adds top margin to move it down slightly */
+  font-size: 16px;
+  width: 100%; 
+  margin-right: 30px;
+  font-weight: bold; /* Ensures it takes the full width of its container */
 }
 
 .signup-prompt a {
@@ -188,12 +194,10 @@ button:disabled {
     padding: 24px 20px;
   }
 
-  input[type="text"],
-  input[type="email"],
-  input[type="date"],
+ 
   button,
   .google-signin-btn {
-    width: 100%;
+  width: 100%;
   }
 
   .error p,
@@ -224,6 +228,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  
 }
 
 
@@ -240,36 +245,104 @@ html, body {
   z-index: 1000;
 }
 
-/* Popup card with increased height */
-.popup-card {
-  background-color: #fff;
-  padding: 40px;
-  height: 450px; /* ⬅️ Increased height */
-  width: 420px;
-  border-radius: 15px;
-  box-shadow: 0 0 25px rgba(0, 128, 0, 0.6);
-  text-align: center;
-  animation: fadeIn 0.5s ease-in-out;
+/* Popup card with increased height 
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
-/* Green tick icon */
-.popup-icon {
-  font-size: 60px;
-  color: green;
-  margin-bottom: 20px;
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #ccc;
+  border-top-color: #dc3545;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
 }
 
-/* Smooth fade-in */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
+@keyframes spin {
   to {
-    opacity: 1;
-    transform: scale(1);
+    transform: rotate(360deg);
   }
 }
+
+/* Popup Overlay */
+.popup-overlay,
+.error-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Success and Error Card */
+.popup-card,
+.error-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+}
+
+.popup-icon svg,
+.error-icon svg {
+  margin-bottom: 10px;
+}
+
+.popup-icon svg {
+  fill: green;
+}
+
+.error-icon svg {
+  fill: red;
+}
+
+.wide-select {
+  width: 100%;        /* Or use a fixed value like 400px */
+  max-width: 500px;   /* Optional: limit max width */
+}
+.weak {
+  color: red;
+  font-weight: bold;
+}
+
+.medium {
+  color: orange;
+  font-weight: bold;
+}
+
+.strong {
+  color: green;
+  font-weight: bold;
+}
+
+.errors p {
+  margin-left: 160px;
+  color: #d9534f;
+  margin: 4px 0;
+  font-size: 14px;
+}
+.loading-placeholder{
+  margin-top: 100px;
+  font-size: 30px;
+  
+}
+
+

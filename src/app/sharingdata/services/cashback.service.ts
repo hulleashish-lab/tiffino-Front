@@ -1,16 +1,14 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
-@Injectable({
-  providedIn: 'root'
-})
+import { environment } from '../../../environments/environments';
+@Injectable({ providedIn: 'root' })
 export class CashbackService {
-  private apiUrl = 'https://your-api-url.com/cashback'; // Replace with your real API URL
+  private apiurl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) {}
 
-  getCashback(): Observable<{ amount: number }> {
-    return this.http.get<{ amount: number }>(this.apiUrl);
+  getRewardsByUserId(userId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiurl}/reward/user/${userId}`);
   }
 }

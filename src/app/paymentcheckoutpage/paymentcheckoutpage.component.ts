@@ -1,48 +1,108 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import Chart from 'chart.js/auto';
-import { ChartConfiguration } from 'chart.js';
-import { NgChartsConfiguration } from 'ng2-charts';
-import { RouterLink } from '@angular/router';
-import { Router } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
+import { CuisinesService } from '../sharingdata/services/cusines.service';
+import { PaymentService } from '../sharingdata/services/payment.service';
 
 @Component({
   selector: 'app-paymentcheckoutpage',
   standalone: true,
-  imports: [CommonModule,FormsModule,RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, ReactiveFormsModule],
   templateUrl: './paymentcheckoutpage.component.html',
   styleUrl: './paymentcheckoutpage.component.css'
 })
-export class PaymentcheckoutpageComponent {
-constructor(private router:Router){
- 
-}
- 
-  
-paymentMethod = 'wallet';
+export class PaymentcheckoutpageComponent implements OnInit, AfterViewInit {
+  orderData: any;
+  cuisines: any[] = []; // Array to hold cuisine details for all items
+  selectedPaymentMethod: string = 'UPI';
+  initiateresponse: any;
+showerror=false
+  constructor(
+    private router: Router,
+    private cs: CuisinesService,
+    private pay: PaymentService
+  ) {}
 
-  orderSummary = {
-    items: [
-      { name: 'South Indian Tiffin', price: 120 },
-      { name: 'Masala Chai', price: 20 }
-    ],
-    delivery: 0,
-    tax: 10,
-    walletBalance: 300
-  };
+  ngOnInit(): void {
+    const state = history.state;
+    if (state && state.orderItem) {
+      this.orderData = state.orderItem;
+      localStorage.setItem('latestOrder', JSON.stringify(this.orderData));
+    } else {
+      const stored = localStorage.getItem('latestOrder');
+      if (stored) this.orderData = JSON.parse(stored);
+    }
 
-  get total(): number {
-    const subtotal = this.orderSummary.items.reduce((sum, i) => sum + i.price, 0);
-    return subtotal + this.orderSummary.tax + this.orderSummary.delivery;
+    if (this.orderData?.orderItems?.length) {
+      this.loadAllCuisines(this.orderData.orderItems);
+    }
   }
 
-  confirmPayment() {
-   this.router.navigate(['/payment']);
+  // Load cuisine details for each item
+  loadAllCuisines(orderItems: any[]) {
+    this.cuisines = [];
+    orderItems.forEach(item => {
+      this.cs.cusinesbyid(item.mealId).subscribe({
+        next: (res) => {
+          console.log(res);
+          this.cuisines.push(res);
+        },
+        error: (err) => console.error('Error loading cuisine', err)
+      });
+    });
   }
 
-@ViewChild('indiaPieChart') chartRef!: ElementRef<HTMLCanvasElement>;
+  initiatePayment() {
+    if (!this.orderData) {
+      alert('No order data available!');
+      return;
+    }
+
+    // ✅ Extract cuisine IDs from the cuisines array
+    const cuisineIds = this.cuisines.map(c => c.id);
+    console.log('Cuisine IDs being sent:', cuisineIds);
+
+    const paymentPayload = {
+      orderId: this.orderData.id,
+      userId: this.orderData.userId,
+      amount: this.orderData.totalAmount,
+      paymentMethod: this.selectedPaymentMethod,
+    
+    };
+
+    this.pay.initiate(paymentPayload).subscribe(
+      (res: any) => {
+        alert('Payment initiated');
+        console.log(res);
+        this.initiateresponse = res;
+       if (this.initiateresponse.status === 'FAILED') {
+          // Pass the transactionId and order data to retry page
+         this.router.navigate(['/paymentretry'], {
+  queryParams: { 
+    transactionId: this.initiateresponse.transactionId,
+    orderId: this.initiateresponse.orderId,
+    status:this.initiateresponse.status
+  }
+});
+        } else {
+          // Proceed with successful payment
+          alert('Payment initiated successfully!');
+          this.router.navigate(['/payment'], {
+            state: { orderId: res.orderId }
+          });
+        }
+      },
+      (err: any) => {
+        console.error('Payment failed:', err);
+        alert('Payment failed. Please try again.');
+      
+      }
+    );
+  }
+
+  @ViewChild('indiaPieChart') chartRef!: ElementRef<HTMLCanvasElement>;
 
   ngAfterViewInit() {
     const ctx = this.chartRef.nativeElement.getContext('2d');
@@ -54,7 +114,7 @@ paymentMethod = 'wallet';
           datasets: [{
             label: 'India Coverage (%)',
             data: [100, 60, 55],
-            backgroundColor: ['#ff345', '	#FF0000', '#FFA500'],
+            backgroundColor: ['#ff345', '#FF0000', '#FFA500'],
             borderColor: ['#fff', '#fff', '#fff'],
             borderWidth: 2
           }]
@@ -73,9 +133,4 @@ paymentMethod = 'wallet';
       });
     }
   }
-
-
-
-
-
 }
